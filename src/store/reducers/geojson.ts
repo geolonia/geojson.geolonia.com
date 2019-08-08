@@ -1,6 +1,6 @@
 export type GeoJsonState = {
   draft: string;
-  data: GeoJSON.GeoJSON;
+  data: GeoJSON.FeatureCollection<GeoJSON.Geometry>;
   error: false | Error;
 };
 
@@ -11,7 +11,7 @@ const FixType = "@geojson.geolonia.com/GeoJSON/fix";
 type UpdateGeoJsonAction = {
   type: typeof UpdateGeoJsonType;
   payload: {
-    geojson: GeoJSON.GeoJSON;
+    geojson: GeoJSON.FeatureCollection<GeoJSON.Geometry>;
   };
 };
 
@@ -44,7 +44,9 @@ const initialState: GeoJsonState = {
 };
 
 export const createActions = {
-  update: (geojson: GeoJSON.GeoJSON): UpdateGeoJsonAction => ({
+  update: (
+    geojson: GeoJSON.FeatureCollection<GeoJSON.Geometry>
+  ): UpdateGeoJsonAction => ({
     type: UpdateGeoJsonType,
     payload: { geojson }
   }),

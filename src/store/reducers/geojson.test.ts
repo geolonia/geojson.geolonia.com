@@ -6,7 +6,7 @@ test("reducer of update action", () => {
     data: { type: "FeatureCollection", features: [] },
     error: false
   };
-  const geoJson: GeoJSON.GeoJSON = {
+  const geoJson: GeoJSON.FeatureCollection<GeoJSON.Geometry> = {
     type: "FeatureCollection",
     features: [
       {
