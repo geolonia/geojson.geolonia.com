@@ -1,7 +1,13 @@
 import React from "react";
+import { shallowEqual, useSelector } from "react-redux";
+import { AppState } from "../store";
+
+// state selector
+const selectGeoJson = (state: AppState) => state.geoJson.data;
 
 export const Map: React.FC = () => {
-  return <div>{"render map here"}</div>;
+  const geoJson = useSelector(selectGeoJson, shallowEqual);
+  return <pre>{JSON.stringify(geoJson)}</pre>;
 };
 
 export default Map;
