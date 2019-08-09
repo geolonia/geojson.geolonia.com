@@ -3,6 +3,19 @@ import { shallowEqual, useSelector, useDispatch } from "react-redux";
 import { AppState } from "../store";
 import { createActions as createGeoJsonActions } from "../store/reducers/geojson";
 import { Dispatch } from "redux";
+import styled from "styled-components";
+
+const TextArea = styled.textarea`
+  border: none;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  resize: none;
+  padding: 8px;
+  font-family: Courier New, Consolas, monospace;
+  font-size: 14px;
+  color: #2b2b2b;
+`;
 
 // state selector
 const selectState = (state: AppState) => state.geoJson;
@@ -26,17 +39,17 @@ export const GeoJsonEditor: React.FC = () => {
   }, [dispatch, draft]);
 
   return (
-    <section>
-      <textarea
+    <section
+      style={{ width: "100%", height: "100%", border: "1px solid #ccc" }}
+    >
+      <TextArea
+        style={{ width: "100%", height: "100%" }}
         name="geojson-editor"
         id="geojson-editor"
         value={displayValue}
         onChange={e => delegateDispatch(dispatch).updateDraft(e.target.value)}
-      ></textarea>
+      ></TextArea>
       <div>
-        <button onClick={() => delegateDispatch(dispatch).fix()}>
-          {"fix"}
-        </button>
         <div>{error && <span>{"error"}</span>}</div>
       </div>
     </section>

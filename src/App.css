@@ -1,5 +1,21 @@
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  position: relative;
+}
+
+body {
+  padding: 16px;
+}
+
 .App {
-  text-align: center;
+  height: 100%;
 }
 
 .App-logo {

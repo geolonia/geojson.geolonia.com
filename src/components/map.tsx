@@ -55,8 +55,13 @@ export const Map: React.FC = () => {
     }
   }, [geoJson]);
 
-  // @ts-ignore
-  return <div ref={mapContainer} style={{ width: "100%", height: 300 }}></div>;
+  return (
+    <div
+      // @ts-ignore
+      ref={mapContainer}
+      style={{ width: "100%", height: "100%", border: "1px solid #ccc" }}
+    ></div>
+  );
 };
 
 export default Map;
