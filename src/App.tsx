@@ -8,8 +8,11 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <Header></Header>
-      <Map></Map>
-      <GeoJsonEditor></GeoJsonEditor>
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        {" "}
+        <Map></Map>
+        <GeoJsonEditor></GeoJsonEditor>
+      </div>
     </div>
   );
 };
