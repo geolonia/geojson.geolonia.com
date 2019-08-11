@@ -18,7 +18,7 @@ const AppContainer = styled.div`
   padding-bottom: 30px;
 `;
 
-const App: React.FC = () => {
+export const App: React.FC = () => {
   return (
     <div className="App">
       <Header></Header>

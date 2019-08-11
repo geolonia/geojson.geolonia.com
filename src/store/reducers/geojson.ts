@@ -67,17 +67,17 @@ export const reducer = (
   } else if (isUpdateDraftAction(action)) {
     const { draft } = action.payload;
     return { ...state, draft };
-  } else if (isFixAction(action)) {
-    const { draft } = state;
-    if (draft === "") {
-      return state;
-    }
-    try {
-      const geojson = JSON.parse(draft);
-      return { ...state, draft: "", data: geojson, error: false };
-    } catch (error) {
-      return { ...state, error };
-    }
+    // } else if (isFixAction(action)) {
+    //   const { draft } = state;
+    //   if (draft === "") {
+    //     return state;
+    //   }
+    //   try {
+    //     const geojson = JSON.parse(draft);
+    //     return { ...state, draft: "", data: geojson, error: false };
+    //   } catch (error) {
+    //     return { ...state, error };
+    //   }
   } else {
     return state;
   }
