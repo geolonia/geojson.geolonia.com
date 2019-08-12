@@ -43,9 +43,13 @@ declare module "@mapbox/mapbox-gl-draw" {
     userProperties: boolean;
   };
 
-  export default class {
+  class MapboxDraw {
     constructor(options: options);
     onAdd(map: mapboxgl.Map): HTMLElement;
     onRemove(): void;
+    deleteAll(): MapboxDraw;
+    set(json: GeoJSON.FeatureCollection<GeoJSON.Geometry>): void;
   }
+
+  export default MapboxDraw;
 }
