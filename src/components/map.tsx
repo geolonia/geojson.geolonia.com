@@ -27,6 +27,7 @@ export const Map: React.FC<Props> = props => {
       // @ts-ignore
       const map = new mapboxgl.Map({
         container,
+        hash: true,
         style:
           "https://api.tilecloud.io/v1/styles/tilecloud-basic?key=YOUR-API-KEY"
       });
