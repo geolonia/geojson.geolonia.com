@@ -3,7 +3,6 @@ import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import MapboxDraw from "@mapbox/mapbox-gl-draw";
 import jsonStyles from "../assets/json-styles";
-import styleControl from "../assets/style-control";
 import geojsonExtent from "@mapbox/geojson-extent";
 
 type Props = {
@@ -45,8 +44,8 @@ export const Map: React.FC<Props> = props => {
         userProperties: true
       });
 
+      map.addControl(new mapboxgl.NavigationControl());
       map.addControl(draw, "top-right");
-      map.addControl(new styleControl());
 
       ["draw.create", "draw.update", "draw.delete"].forEach(eventType => {
         map.on(eventType, () => {
