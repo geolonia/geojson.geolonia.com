@@ -27,7 +27,7 @@ type FixAction = {
   payload: {};
 };
 
-type GeoJSONAction = UpdateGeoJsonAction | UpdateDraftAction | FixAction;
+export type GeoJSONAction = UpdateGeoJsonAction | UpdateDraftAction | FixAction;
 
 const isUpdateAction = (action: GeoJSONAction): action is UpdateGeoJsonAction =>
   action.type === UpdateGeoJsonType;
@@ -37,7 +37,7 @@ const isUpdateDraftAction = (
 const isFixAction = (action: GeoJSONAction): action is FixAction =>
   action.type === FixType;
 
-const initialState: GeoJsonState = {
+export const initialState: GeoJsonState = {
   draft: "",
   data: { type: "FeatureCollection", features: [] },
   error: false
