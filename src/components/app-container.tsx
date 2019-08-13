@@ -1,4 +1,6 @@
 import React, { useState, useReducer, useEffect } from "react";
+import Header from "./header";
+import Footer from "./footer";
 import Map from "./map";
 import GeoJsonEditor from "./geojson-editor";
 import styled from "styled-components";
@@ -65,14 +67,18 @@ export const AppContainer: React.FC = () => {
     delegateDispatch(dispatch).updateDraft(draft);
 
   return (
-    <StyledAppContainer>
-      <Map draft={draft} disabled={disabled} updateDraft={updateDraft}></Map>
-      <GeoJsonEditor
-        draft={draft}
-        disabled={disabled}
-        updateDraft={updateDraft}
-      ></GeoJsonEditor>
-    </StyledAppContainer>
+    <>
+      <Header updateDraft={updateDraft}></Header>
+      <StyledAppContainer>
+        <Map draft={draft} disabled={disabled} updateDraft={updateDraft}></Map>
+        <GeoJsonEditor
+          draft={draft}
+          disabled={disabled}
+          updateDraft={updateDraft}
+        ></GeoJsonEditor>
+      </StyledAppContainer>
+      <Footer></Footer>
+    </>
   );
 };
 

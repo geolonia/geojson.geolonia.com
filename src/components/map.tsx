@@ -65,7 +65,7 @@ export const Map: React.FC<Props> = props => {
 
   useEffect(() => {
     if (isNotNull<MapboxDraw>(draw)) {
-      if (draft) {
+      if (draft || draft === "") {
         try {
           draw.deleteAll().set(JSON.parse(draft));
           const bounds = geojsonExtent(JSON.parse(draft));

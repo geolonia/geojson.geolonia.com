@@ -1,6 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 
+type Props = {
+  updateDraft: (draft: string) => void;
+};
+
 const HeaderWrap = styled.header`
   position: relative;
 `;
@@ -20,11 +24,11 @@ const ClearButton = styled.button`
   z-index: 9999;
 `;
 
-export const Header: React.FC = () => {
+export const Header: React.FC<Props> = props => {
   return (
     <HeaderWrap>
       <H1>{"GeoJSON Editor"}</H1>
-      <ClearButton>{"Clear"}</ClearButton>
+      <ClearButton onClick={() => props.updateDraft("")}>{"Clear"}</ClearButton>
     </HeaderWrap>
   );
 };
