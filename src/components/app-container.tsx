@@ -61,16 +61,16 @@ export const AppContainer: React.FC = () => {
     });
   }, [dispatch]);
 
-  const onChange = (e: React.FormEvent<HTMLTextAreaElement>) =>
-    delegateDispatch(dispatch).updateDraft(e.currentTarget.value);
+  const updateDraft = (draft: string) =>
+    delegateDispatch(dispatch).updateDraft(draft);
 
   return (
     <StyledAppContainer>
-      <Map draft={draft} disabled={disabled}></Map>
+      <Map draft={draft} disabled={disabled} updateDraft={updateDraft}></Map>
       <GeoJsonEditor
         draft={draft}
         disabled={disabled}
-        onChange={onChange}
+        updateDraft={updateDraft}
       ></GeoJsonEditor>
     </StyledAppContainer>
   );

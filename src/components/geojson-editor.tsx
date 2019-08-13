@@ -17,11 +17,11 @@ const TextArea = styled.textarea<{ error: boolean }>`
 type Props = {
   draft: string;
   disabled: boolean;
-  onChange: (e: React.FormEvent<HTMLTextAreaElement>) => void;
+  updateDraft: (draft: string) => void;
 };
 
 export const GeoJsonEditor: React.FC<Props> = props => {
-  const { draft, disabled, onChange } = props;
+  const { draft, disabled, updateDraft } = props;
   const displayValue = draft || "";
 
   return (
@@ -34,7 +34,7 @@ export const GeoJsonEditor: React.FC<Props> = props => {
         name="geojson-editor"
         id="geojson-editor"
         value={displayValue}
-        onChange={onChange}
+        onChange={e => updateDraft(e.currentTarget.value)}
         disabled={disabled}
       ></TextArea>
       <div></div>

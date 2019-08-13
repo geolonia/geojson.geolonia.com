@@ -5,6 +5,18 @@ import Header from "./components/header";
 import AppContainer from "./components/app-container";
 import Footer from "./components/footer";
 
+// // ===== debug =====
+// // @ts-ignore
+// console.warn = () => {};
+// // @ts-ignore
+// console.error = (x: any) => {
+//   if (x.message === "Failed to fetch") {
+//     return void 0;
+//   } else {
+//     console.log(x);
+//   }
+// };
+
 export const App: React.FC = () => {
   return (
     <div className="App">
