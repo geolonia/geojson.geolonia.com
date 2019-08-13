@@ -42,10 +42,10 @@ export const AppContainer: React.FC = () => {
   const { draft } = geoJsonState;
 
   // auto save
-  useEffect(() => {
-    const timerId = setTimeout(() => delegateDispatch(dispatch).fix(), 2000);
-    return () => clearTimeout(timerId);
-  }, [dispatch, draft]);
+  // useEffect(() => {
+  //   const timerId = setTimeout(() => delegateDispatch(dispatch).fix(), 2000);
+  //   return () => clearTimeout(timerId);
+  // }, [dispatch, draft]);
 
   // localStorage
   useEffect(() => {
