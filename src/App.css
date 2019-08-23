@@ -47,3 +47,50 @@ body {
     transform: rotate(360deg);
   }
 }
+
+/* tabs */
+.tab-wrap {
+  background-color: #fff;
+  width: 220px;
+  margin: 0 auto;
+}
+
+input[name="tab-items"] {
+  display: none;
+}
+
+.tab-label {
+  width: 50%;
+  height: 20px;
+  border-bottom: 2px solid #5ab4bd;
+  line-height: 20px;
+  text-align: center;
+  display: block;
+  float: left;
+  text-align: center;
+  cursor: pointer;
+}
+
+.tab-wrap input:checked + .tab-label {
+  background-color: #5ab4bd;
+  color: #fff;
+}
+
+.tab-content {
+  display: none;
+  clear: both;
+  overflow: hidden;
+}
+
+#style:checked ~ #style-content,
+#props:checked ~ #props-content {
+  display: block;
+}
+
+.tab-wrap td:first-child {
+  text-align: right;
+  width: 85px;
+}
+.tab-wrap td input[type="text"] {
+  width: 120px;
+}

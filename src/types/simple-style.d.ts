@@ -15,7 +15,7 @@ export interface Properties {
   "stroke-opacity"?: number;
   "stroke-width"?: number;
   fill?: string;
-  "fill-opacity": number;
+  "fill-opacity"?: number;
 }
 
 export as namespace SimpleStyle;

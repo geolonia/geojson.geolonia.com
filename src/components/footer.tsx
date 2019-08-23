@@ -27,7 +27,7 @@ export const Footer: React.FC = () => {
   return (
     <FooterWrap>
       <Link href="https://geolonia.com">
-        <Image src="./logo.png"></Image>
+        <Image src="https://github.com/geolonia/logo/raw/master/geolonia-388x60.png"></Image>
       </Link>
     </FooterWrap>
   );

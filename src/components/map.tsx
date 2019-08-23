@@ -5,6 +5,7 @@ import MapboxDraw from "@mapbox/mapbox-gl-draw";
 import jsonStyles from "../assets/json-styles";
 import geojsonExtent from "@mapbox/geojson-extent";
 import GeoloniaControl from "@geolonia/mbgl-geolonia-control";
+import { createFeaturePropertyTableHTML } from "../lib/geojson";
 
 type Props = {
   draft: string;
@@ -56,6 +57,7 @@ export const Map: React.FC<Props> = props => {
           updateDraft(JSON.stringify(geoJson, null, "  "));
         });
       });
+
       setMap(map);
       setDraw(draw);
       return () =>
@@ -63,7 +65,33 @@ export const Map: React.FC<Props> = props => {
           map.off(eventType)
         );
     }
-  }, [map, updateDraft]);
+  }, [draft, map, updateDraft]);
+
+  useEffect(() => {
+    if (map && draw && draft) {
+      map.on("click", (e: mapboxgl.MapMouseEvent) => {
+        const ids = draw.getFeatureIdsAt(e.point);
+        if (ids.length < 1) {
+          return;
+        } else {
+          const id = ids[0];
+          try {
+            const geoJson = JSON.parse(draft) as GeoJSON.FeatureCollection<
+              GeoJSON.Geometry
+            >;
+            const feature = geoJson.features.find(feature => feature.id === id);
+            feature &&
+              new mapboxgl.Popup({ closeOnClick: true })
+                .setLngLat(e.lngLat)
+                .setHTML(createFeaturePropertyTableHTML(feature))
+                .addTo(map);
+          } catch (e) {
+            console.error(e);
+          }
+        }
+      });
+    }
+  }, [draft, draw, map]);
 
   useEffect(() => {
     if (isNotNull<MapboxDraw>(draw)) {
