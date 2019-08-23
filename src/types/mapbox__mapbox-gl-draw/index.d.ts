@@ -50,6 +50,7 @@ declare module "@mapbox/mapbox-gl-draw" {
     deleteAll(): MapboxDraw;
     set(json: GeoJSON.FeatureCollection<GeoJSON.Geometry>): void;
     getAll(): GeoJSON.FeatureCollection<GeoJSON.Geometry>;
+    getFeatureIdsAt(point: mapboxgl.Point): string[];
   }
 
   export default MapboxDraw;

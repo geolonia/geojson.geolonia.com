@@ -69,8 +69,11 @@ export const Map: React.FC<Props> = props => {
     if (isNotNull<MapboxDraw>(draw)) {
       if (draft || draft === "") {
         try {
-          draw.deleteAll().set(JSON.parse(draft));
-          const bounds = geojsonExtent(JSON.parse(draft));
+          const geoJsons = JSON.parse(draft) as GeoJSON.FeatureCollection<
+            GeoJSON.Geometry
+          >;
+          draw.deleteAll().set(geoJsons);
+          const bounds = geojsonExtent(geoJsons);
           if (bounds && isNotNull<mapboxgl.Map>(map)) {
             map.fitBounds(bounds, { padding: 20 });
           }
