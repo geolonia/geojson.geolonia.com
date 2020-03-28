@@ -5,9 +5,9 @@
 https://geojson.geplonia.com/
 
 ```bash
-$ git clone git@github.com:geplonia/geojson.geplonia.com.git
-$ cd geojson.geplonia.com
-$ yarn
+$ git clone git@github.com:geplonia/geojson.geolonia.com.git
+$ cd geojson.geolonia.com
+$ yarnFix t
 ```
 
 Develop:
