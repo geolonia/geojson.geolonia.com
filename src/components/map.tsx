@@ -1,11 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
-import mapboxgl from "mapbox-gl";
-import "mapbox-gl/dist/mapbox-gl.css";
 import MapboxDraw from "@mapbox/mapbox-gl-draw";
 import jsonStyles from "../assets/json-styles";
 import geojsonExtent from "@mapbox/geojson-extent";
 import GeoloniaControl from "@geolonia/mbgl-geolonia-control";
 import { createFeaturePropertyTableHTML } from "../lib/geojson";
+
+// @ts-ignore
+const mapboxgl = window.geolonia
 
 type Props = {
   draft: string;
@@ -29,8 +30,7 @@ export const Map: React.FC<Props> = props => {
       const map = new mapboxgl.Map({
         container,
         hash: true,
-        style:
-          "https://api.tilecloud.io/v1/styles/tilecloud-basic?key=YOUR-API-KEY"
+        style: "geolonia/basic"
       });
 
       const draw = new MapboxDraw({
@@ -49,7 +49,6 @@ export const Map: React.FC<Props> = props => {
 
       map.addControl(new mapboxgl.NavigationControl());
       map.addControl(draw, "top-right");
-      map.addControl(new GeoloniaControl());
 
       ["draw.create", "draw.update", "draw.delete"].forEach(eventType => {
         map.on(eventType, () => {
