@@ -2,7 +2,6 @@ import React, { useState, useRef, useEffect } from "react";
 import MapboxDraw from "@mapbox/mapbox-gl-draw";
 import jsonStyles from "../assets/json-styles";
 import geojsonExtent from "@mapbox/geojson-extent";
-import GeoloniaControl from "@geolonia/mbgl-geolonia-control";
 import { createFeaturePropertyTableHTML } from "../lib/geojson";
 
 // @ts-ignore
