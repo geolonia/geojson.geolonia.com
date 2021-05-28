@@ -4,10 +4,10 @@
 
 https://geojson.geolonia.com/
 
-```bash
+```shell
 $ git clone git@github.com:geolonia/geojson.geolonia.com.git
 $ cd geojson.geolonia.com
-$ yarnFix t
+$ npm install
 ```
 
 Develop:
